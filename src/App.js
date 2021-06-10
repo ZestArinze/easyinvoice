@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Switch, Route, useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Switch, Route, useLocation, BrowserRouter } from 'react-router-dom';
 
 import './css/style.scss';
 
@@ -9,6 +9,15 @@ import './charts/ChartjsConfig';
 // Import pages
 import Dashboard from './pages/Dashboard';
 import AddInvoice from './pages/AddInvoice';
+import Login from './partials/auth/Login';
+import Register from './partials/auth/Register';
+import { authToken } from './utils/authUtils';
+import AddClient from './pages/AddClient';
+import Clients from './pages/Clients';
+import Invoices from './pages/Invoices';
+import Businesses from './pages/Businesses';
+import Settings from './pages/Settings';
+import GuestRoutes from './partials/auth/GuestRouts';
 
 function App() {
   const location = useLocation();
@@ -20,16 +29,43 @@ function App() {
     focusHandling('outline');
   }, [location.pathname]); // triggered on route change
 
+  if (!authToken()) {
+    return <GuestRoutes />;
+  }
+
   return (
     <>
-      <Switch>
-        <Route exact path='/'>
-          <Dashboard />
-        </Route>
-        <Route exact path='/add-invoice'>
-          <AddInvoice />
-        </Route>
-      </Switch>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path='/'>
+            <Dashboard />
+          </Route>
+          <Route exact path='/login'>
+            <Login />
+          </Route>
+          <Route exact path='/register'>
+            <Register />
+          </Route>
+          <Route exact path='/add-invoice'>
+            <AddInvoice />
+          </Route>
+          <Route exact path='/add-client'>
+            <AddClient />
+          </Route>
+          <Route exact path='/clients'>
+            <Clients />
+          </Route>
+          <Route exact path='/invoices'>
+            <Invoices />
+          </Route>
+          <Route exact path='/businesses'>
+            <Businesses />
+          </Route>
+          <Route exact path='/settings'>
+            <Settings />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </>
   );
 }
