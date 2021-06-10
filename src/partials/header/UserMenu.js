@@ -28,8 +28,8 @@ function UserMenu({ name }) {
     const clickHandler = ({ target }) => {
       if (
         !dropdownOpen ||
-        dropdown.current.contains(target) ||
-        trigger.current.contains(target)
+        (dropdown && dropdown.current && dropdown.current.contains(target)) ||
+        (trigger && trigger.current && trigger.current.contains(target))
       )
         return;
       setDropdownOpen(false);
