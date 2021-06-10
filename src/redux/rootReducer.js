@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import homeReducer from './dashboard/reducers/homeReducer';
-import loginReducer from './user/reducers/loginReducer';
+import authReducer from './user/reducers/authReducer';
 import registerReducer from './user/reducers/registerReducer';
 
 export default combineReducers({
-  login: loginReducer,
+  auth: authReducer,
   register: registerReducer,
   home: homeReducer,
 });

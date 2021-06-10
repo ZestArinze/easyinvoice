@@ -7,8 +7,7 @@ import ServerResponseError from '../errors/ServerResponseError';
 
 // CSS
 import './../css/Login.css';
-import { Link } from 'react-router-dom';
-import Dashboard from '../../pages/Dashboard';
+import { Link, Redirect } from 'react-router-dom';
 
 export default function Login() {
   const [error, setError] = useState();
@@ -16,7 +15,7 @@ export default function Login() {
   const [authToken, setToken] = useState();
 
   const dispatch = useDispatch();
-  const login = useSelector((state) => state.login);
+  const login = useSelector((state) => state.auth);
 
   const [email, setUserName] = useState('');
   const [password, setPassword] = useState('');
@@ -48,7 +47,7 @@ export default function Login() {
   }, [setToken, login]);
 
   if (authToken) {
-    return <Dashboard />;
+    return <Redirect to='/' />;
   }
 
   return (

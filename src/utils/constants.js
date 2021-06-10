@@ -1,1 +1,1 @@
-export const API_BASE_PATH = 'https://apieasyinvoice.herokuapp.com/api';
+export const API_BASE_PATH = 'http://localhost:8000/api';

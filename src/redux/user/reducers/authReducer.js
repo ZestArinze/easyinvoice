@@ -13,14 +13,14 @@ const initialState = {
   error: null,
 };
 
-export default function loginReducer(state = initialState, action) {
-  // console.log('----------------> loginReducer action: ', action);
+export default function authReducer(state = initialState, action) {
+  // console.log('----------------> authReducer action: ', action);
 
   switch (action.type) {
     case RESET:
-      return state;
+      return initialState;
     case LOGOUT:
-      return state;
+      return initialState;
     case LOGIN:
       return {
         ...state,

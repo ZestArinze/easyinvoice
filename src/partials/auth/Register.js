@@ -7,7 +7,7 @@ import ServerResponseError from '../errors/ServerResponseError';
 
 // CSS
 import './../css/Login.css';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 export default function Register({}) {
   const [error, setError] = useState();
@@ -44,6 +44,10 @@ export default function Register({}) {
     },
     [dispatch, name, email, password, password_confirmation]
   );
+
+  if (register.status) {
+    return <Redirect to='/login' />;
+  }
 
   return (
     <div className='register-wrapper p-6'>
