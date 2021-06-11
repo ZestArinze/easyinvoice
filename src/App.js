@@ -9,15 +9,17 @@ import './charts/ChartjsConfig';
 // Import pages
 import Dashboard from './pages/Dashboard';
 import AddInvoice from './pages/AddInvoice';
-import Login from './partials/auth/Login';
-import Register from './partials/auth/Register';
+import Login from './pages/auth/Login';
+import Register from './pages/auth/Register';
 import { authToken } from './utils/authUtils';
 import AddClient from './pages/AddClient';
 import Clients from './pages/Clients';
 import Invoices from './pages/Invoices';
 import Businesses from './pages/Businesses';
 import Settings from './pages/Settings';
-import GuestRoutes from './partials/auth/GuestRouts';
+import AddBusiness from './pages/AddBusiness';
+import GuestRoutes from './partials/GuestRouts';
+import InvoiceDetails from './pages/InvoiceDetails';
 
 function App() {
   const location = useLocation();
@@ -52,11 +54,17 @@ function App() {
           <Route exact path='/add-client'>
             <AddClient />
           </Route>
+          <Route exact path='/add-business'>
+            <AddBusiness />
+          </Route>
           <Route exact path='/clients'>
             <Clients />
           </Route>
           <Route exact path='/invoices'>
             <Invoices />
+          </Route>
+          <Route exact path='/invoices/:id'>
+            <InvoiceDetails />
           </Route>
           <Route exact path='/businesses'>
             <Businesses />

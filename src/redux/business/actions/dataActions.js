@@ -1,24 +1,23 @@
 import AppHandledException from '../../../models/AppHandledException';
 import { apiRequest, checkAuthStatus } from '../../../utils/apiRequest';
 
-export const HOME = 'HOME';
-export const HOME_FAILURE = 'HOME_FAILURE';
-export const HOME_SUCCESS = 'HOME_SUCCESS';
-export const RESET = 'RESET';
+export const DATA_RESET = 'DATA_RESET';
+export const GET_CURRENCIES_FAILURE = 'GET_CURRENCIES_FAILURE';
+export const GET_CURRENCIES_SUCCESS = 'GET_CURRENCIES_SUCCESS';
 
 export const reset = () => {
   return async (dispatch) => {
     dispatch({
-      type: RESET,
+      type: DATA_RESET,
       data: null,
     });
   };
 };
 
-export const businessOverView = () => {
+export const getCurrencies = () => {
   return async (dispatch) => {
     try {
-      const response = await apiRequest('/businesses/overview', 'GET');
+      const response = await apiRequest('/currencies', 'GET');
       const responseData = await response.json();
 
       checkAuthStatus(response, dispatch);
@@ -27,7 +26,7 @@ export const businessOverView = () => {
         if (responseData) {
           if (!responseData.status) {
             dispatch({
-              type: HOME_FAILURE,
+              type: GET_CURRENCIES_FAILURE,
               data: responseData,
             });
             return;
@@ -37,7 +36,7 @@ export const businessOverView = () => {
       }
 
       dispatch({
-        type: HOME_SUCCESS,
+        type: GET_CURRENCIES_SUCCESS,
         data: responseData,
       });
     } catch (error) {

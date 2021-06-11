@@ -1,13 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
+
+import './../../css/login.css';
 import * as authActions from '../../redux/user/actions/authActions';
 import AppHandledException from '../../models/AppHandledException';
-import ServerResponseError from '../errors/ServerResponseError';
-
-// CSS
-import './../css/Login.css';
-import { Link, Redirect } from 'react-router-dom';
+import ServerResponseError from '../../partials/errors/ServerResponseError';
 
 export default function Login() {
   const [error, setError] = useState();

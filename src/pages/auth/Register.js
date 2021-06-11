@@ -1,21 +1,18 @@
 import React, { useCallback, useState } from 'react';
-import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import * as registerActions from '../../redux/user/actions/registerActions';
-import AppHandledException from '../../models/AppHandledException';
-import ServerResponseError from '../errors/ServerResponseError';
 
-// CSS
-import './../css/Login.css';
+import './../../css/login.css';
+import * as registerActions from '../../redux/user/actions/registerActions';
 import { Link, Redirect } from 'react-router-dom';
+import AppHandledException from '../../models/AppHandledException';
+import ServerResponseError from '../../partials/errors/ServerResponseError';
 
 export default function Register({}) {
+  const dispatch = useDispatch();
+  const register = useSelector((state) => state.register);
+
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(false);
-
-  const dispatch = useDispatch();
-
-  const register = useSelector((state) => state.register);
 
   const [name, setName] = useState();
   const [email, setUserName] = useState();

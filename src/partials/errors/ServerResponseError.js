@@ -4,8 +4,7 @@ function ServerResponseError({ error }) {
       {Array.isArray(error) &&
         error.map((err, index) => (
           <p key={index}>
-            <span className='text-red-500'>{err.field}</span> &raquo;{' '}
-            {err.message}!
+            &raquo; <span className='text-red-500'>{err.message}</span>
           </p>
         ))}
     </div>

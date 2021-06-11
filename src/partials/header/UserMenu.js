@@ -6,7 +6,6 @@ import UserAvatar from '../../images/user-avatar-32.png';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../redux/user/actions/authActions';
 import { authToken } from '../../utils/authUtils';
-import GuestRoutes from '../auth/GuestRouts';
 
 function UserMenu({ name }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
