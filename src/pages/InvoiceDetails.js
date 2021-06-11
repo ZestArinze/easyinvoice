@@ -35,7 +35,7 @@ function InvoiceDetails() {
 
         <main>
           <div className='px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto my-4'>
-            <h1 className='text-3xl'>
+            <h1 className='text-3xl my-3'>
               Invoice {invoiceItems.data.invoice_number}
             </h1>
             <div>
@@ -45,17 +45,29 @@ function InvoiceDetails() {
               <span className='mx-2'>Total: {invoiceItems.data.total}</span>
               <span className='mx-2'>VAT: {invoiceItems.data.vat}</span>
             </div>
-            {invoiceItems.data &&
-              invoiceItems.data.invoice_items &&
-              invoiceItems.data.invoice_items.map((invoiceItem) => (
-                <>
-                  <InvoiceItemListItem
-                    key={invoiceItem.id}
-                    invoiceItem={invoiceItem}
-                  />
-                  <hr />
-                </>
-              ))}
+            <table className='border-collapse border border-green-800 ...'>
+              <thead>
+                <tr>
+                  <th className='border border-green-600'>Item</th>
+                  <th className='border border-green-600'>Unit Price</th>
+                  <th className='border border-green-600'>Quantity</th>
+                  <th className='border border-green-600'>Discount</th>
+                  <th className='border border-green-600'>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                {invoiceItems.data.invoice_items &&
+                  invoiceItems.data.invoice_items.map((invoiceItem) => (
+                    <>
+                      <InvoiceItemListItem
+                        key={invoiceItem.id}
+                        invoiceItem={invoiceItem}
+                      />
+                      <hr />
+                    </>
+                  ))}
+              </tbody>
+            </table>
           </div>
         </main>
 
