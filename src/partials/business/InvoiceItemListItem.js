@@ -7,7 +7,6 @@ export default function InvoiceItemListItem({ invoiceItem }) {
         {invoiceItem.quantity}
         {invoiceItem.discount}
       </div>
-      <hr />
     </div>
   );
 }

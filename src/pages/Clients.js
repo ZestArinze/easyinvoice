@@ -33,7 +33,7 @@ function Clientes() {
 
         <main>
           <div className='px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto my-4'>
-            <h1>Clientes</h1>
+            <h1 className='text-3xl'>Clientes</h1>
             <Link to='/add-client'>
               <button className='btn bg-indigo-500 hover:bg-indigo-600 text-white'>
                 <svg

@@ -35,7 +35,9 @@ function InvoiceDetails() {
 
         <main>
           <div className='px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto my-4'>
-            <h1>Invoice {invoiceItems.data.invoice_number}</h1>
+            <h1 className='text-3xl'>
+              Invoice {invoiceItems.data.invoice_number}
+            </h1>
             <div>
               <span className='mx-2'>
                 Subtotal: {invoiceItems.data.subtotal}
@@ -44,11 +46,15 @@ function InvoiceDetails() {
               <span className='mx-2'>VAT: {invoiceItems.data.vat}</span>
             </div>
             {invoiceItems.data &&
+              invoiceItems.data.invoice_items &&
               invoiceItems.data.invoice_items.map((invoiceItem) => (
-                <InvoiceItemListItem
-                  key={invoiceItem.id}
-                  invoiceItem={invoiceItem}
-                />
+                <>
+                  <InvoiceItemListItem
+                    key={invoiceItem.id}
+                    invoiceItem={invoiceItem}
+                  />
+                  <hr />
+                </>
               ))}
           </div>
         </main>

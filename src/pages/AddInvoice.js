@@ -111,7 +111,7 @@ function AddInvoice() {
 
         <main>
           <div className='px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto'>
-            <h1>Add Invoice</h1>
+            <h1 className='text-3xl'>Add Invoice</h1>
 
             <div className='my-6'>
               {isLoading && <div>Loading...</div>}
@@ -122,8 +122,6 @@ function AddInvoice() {
                 <ServerResponseError error={addInvoice.error} />
               )}
             </div>
-
-            <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div>
 
             <form onSubmit={handleSubmit} className='w-full max-w-lg'>
               <div className='flex flex-wrap -mx-3 mb-6'>

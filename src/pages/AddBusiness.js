@@ -65,7 +65,7 @@ function AddBusiness() {
 
         <main>
           <div className='px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto'>
-            <h1>Add Business</h1>
+            <h1 className='text-3xl'>Add Business</h1>
 
             <div className='my-6'>
               {isLoading && <div>Loading...</div>}
